@@ -1,0 +1,95 @@
+:root{
+    --bgNav: tomato;
+}
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+header{
+    width:100%;
+    position: fixed;
+}
+.logo{
+    text-align: center;
+    background-color: var(--bgNav);
+    padding-bottom: .3rem;
+}
+.navLinks li a{
+    display:block;
+    padding: .3rem 1rem;
+    text-decoration: none;
+    color:black;
+    text-transform: uppercase;
+    opacity: 0;
+    transition: opacity 200ms ease 200ms;
+}
+.navLinks li a:hover{
+        border-radius: 10px;
+        background-color: rgb(216, 105, 86);
+}
+.navToggle{
+    display: none;
+}
+
+.navBar{
+    background-color: var(--bgNav);
+    transform-origin: top;
+    transform:scale(1,0);
+    transition: transform  80 ms ease-in-out ;
+}
+.navToggle:checked ~ .navBar {
+    transform:scale(1,1);
+    transition : transform ease-in-out 400ms
+}
+.navToggle:checked ~ nav a{
+    opacity: 1;
+    transition: opacity 200ms ease-in-out 150ms;
+}
+.toggleIcon{
+    position: absolute;
+    top:.3rem;
+    left:1rem;
+}
+.toggleIcon div{
+    width:2rem;
+    height: .2rem;
+    background-color: black;
+    margin:6px 0;
+
+}
+
+@media screen and (min-width: 400px){
+    .toggleIcon{display: none;}
+    header{
+        background-color: var(--bgNav);
+        border: 2px solid green;
+        display:grid;
+        grid-template-columns: 1fr auto minmax(80px,2fr) auto 1fr;
+        height:3rem;
+    }
+    .navBar{
+        all:unset;
+        grid-column: 4/5;
+        display:flex;
+        align-items: center;
+    }
+    .navLinks li{
+        display: inline-block;
+    }
+    .navLinks li a{
+        height:100%;
+        opacity: 1;
+        padding:.5rem .5rem; 
+    }
+    .navLinks li a:hover{
+        border-radius: 10px;
+        background-color: rgb(216, 105, 86);
+    }
+    .logo{grid-column: 2/3;}
+
+    
+}
+
+
+
